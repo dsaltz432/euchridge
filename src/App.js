@@ -1,11 +1,12 @@
 import React from 'react';
+import Content from './Content';
 
 export default class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Hello Euchridge!</h1>
+        <Content/>
       </div>
-    )
+    );
   }
 }

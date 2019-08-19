@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "eslint": "^6.1.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
+    "react-scroll": "^1.7.13",
     "typescript": "^3.5.3"
   },
   "scripts": {
