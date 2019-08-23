@@ -1,11 +1,11 @@
 import React from 'react';
-import Content from './Content';
+import Rules from './Rules';
 
 export default class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <Content />
+        <Rules />
       </div>
     );
   }
