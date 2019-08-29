@@ -1,0 +1,15 @@
+.header_menu_list {
+	background-color: grey;
+	display: inline-block;
+	width: 100%;
+}
+
+.header_menu_item {
+	display: inline-block;
+	float: right;
+}
+
+.header_menu_item_link {
+	color: white;
+	text-decoration: none;
+}

@@ -3,27 +3,39 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { MenuList, MenuItem } from '@material-ui/core';
 import Rules from './Rules';
 import Standings from './Standings';
+import './App.css';
+
+const NotFound = ({ location }) => (
+  <div>
+    <h2>
+      No match found for
+      <code>{location.pathname}</code>
+    </h2>
+  </div>
+);
 
 export default class App extends React.Component {
   render() {
     return (
       <Router>
         <div>
-          <MenuList style={{ backgroundColor: 'grey', display: 'inline-block', width: '100%' }}>
-            <MenuItem style={{ display: 'inline-block', float: 'right' }}>
-              <Link to="/rules" style={{ color: 'white', textDecoration: 'none' }}>
+          <MenuList className="header_menu_list">
+            <MenuItem className="header_menu_item">
+              <Link className="header_menu_item_link" to="/rules">
                 Rules
               </Link>
             </MenuItem>
-            <MenuItem style={{ display: 'inline-block', float: 'right' }}>
-              <Link to="/standings" style={{ color: 'white', textDecoration: 'none' }}>
+            <MenuItem className="header_menu_item">
+              <Link className="header_menu_item_link" to="/standings">
                 Standings
               </Link>
             </MenuItem>
           </MenuList>
           <Switch>
+            <Route exact path="/" component={Rules} />
             <Route exact path="/rules" component={Rules} />
-            <Route path="/standings" component={Standings} />
+            <Route exact path="/standings" component={Standings} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>
