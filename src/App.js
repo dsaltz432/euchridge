@@ -21,13 +21,13 @@ export default class App extends React.Component {
         <div>
           <MenuList className="header_menu_list">
             <MenuItem className="header_menu_item">
-              <Link className="header_menu_item_link" to="/rules">
-                Rules
+              <Link className="header_menu_item_link" to="/standings">
+                Standings
               </Link>
             </MenuItem>
             <MenuItem className="header_menu_item">
-              <Link className="header_menu_item_link" to="/standings">
-                Standings
+              <Link className="header_menu_item_link" to="/rules">
+                Rules
               </Link>
             </MenuItem>
           </MenuList>
