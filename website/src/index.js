@@ -1,6 +1,6 @@
 import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Navigation from './views/navigation/navigation';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Navigation />, document.getElementById('root'));

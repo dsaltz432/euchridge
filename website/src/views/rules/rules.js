@@ -1,8 +1,8 @@
 import React from 'react';
-import getSections from './Api';
-import Titles from './Titles';
-import Descriptions from './Descriptions';
-import './Rules.css';
+import getSections from '../../utils/api';
+import Titles from './titles';
+import Descriptions from './descriptions';
+import './rules.css';
 
 export default class Rules extends React.Component {
   render() {

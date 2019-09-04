@@ -1,1 +1,1 @@
-# euchridge
+# Euchridge

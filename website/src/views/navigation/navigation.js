@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { MenuList, MenuItem } from '@material-ui/core';
-import Rules from './Rules';
-import Standings from './Standings';
-import './App.css';
+import Rules from '../rules/rules';
+import Scoreboard from '../scoreboard/scoreboard';
+import './navigation.css';
 
-const NotFound = ({ location }) => (
+const notFound = ({ location }) => (
   <div>
     <h2>
       No match found for
@@ -14,15 +14,15 @@ const NotFound = ({ location }) => (
   </div>
 );
 
-export default class App extends React.Component {
+export default class Navigation extends React.Component {
   render() {
     return (
       <Router>
         <div>
           <MenuList className="header_menu_list">
             <MenuItem className="header_menu_item">
-              <Link className="header_menu_item_link" to="/standings">
-                Standings
+              <Link className="header_menu_item_link" to="/scoreboard">
+                Scoreboard
               </Link>
             </MenuItem>
             <MenuItem className="header_menu_item">
@@ -34,8 +34,8 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Rules} />
             <Route exact path="/rules" component={Rules} />
-            <Route exact path="/standings" component={Standings} />
-            <Route component={NotFound} />
+            <Route exact path="/scoreboard" component={Scoreboard} />
+            <Route component={notFound} />
           </Switch>
         </div>
       </Router>
