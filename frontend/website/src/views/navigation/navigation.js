@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { MenuList, MenuItem } from '@material-ui/core';
 import Rules from '../rules/rules';
-import Scoreboard from '../scoreboard/scoreboard';
+import ScoreboardWrapper from '../scoreboard/scoreboard.wrapper';
 import './navigation.css';
 
 const notFound = ({ location }) => (
@@ -34,7 +34,7 @@ export default class Navigation extends React.Component {
           <Switch>
             <Route exact path="/" component={Rules} />
             <Route exact path="/rules" component={Rules} />
-            <Route exact path="/scoreboard" component={Scoreboard} />
+            <Route exact path="/scoreboard" component={ScoreboardWrapper} />
             <Route component={notFound} />
           </Switch>
         </div>
