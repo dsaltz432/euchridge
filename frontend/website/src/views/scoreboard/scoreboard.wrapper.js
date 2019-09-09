@@ -1,40 +1,40 @@
 import React from 'react';
 import { ScoreboardBrowser } from './scoreboard.browser';
+import { Scoreboard } from '../../uiengine/components/scoreboard/scoreboard.container';
 
 export default class ScoreboardWrapper extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      title: 'Scoreboard',
-      scores: [0, 0, 0, 0]
+      totalSum: 0
     };
 
-    this.handleScoreUpdate = this.handleScoreUpdate.bind(this);
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
   }
 
-  handleScoreUpdate(playerIndex, change) {
-    const { scores } = this.state; // access scores using destructuring
-    const newScores = scores.slice(); // copy the array
-    newScores[playerIndex] += change; // manipulate the copy of the array
+  increment() {
+    const { totalSum } = this.state;
+    this.setState(() => ({
+      totalSum: totalSum + 1
+    }));
+  }
 
-    // update state
-    this.setState(prevState => ({
-      ...prevState.title,
-      scores: newScores
+  decrement() {
+    const { totalSum } = this.state;
+    this.setState(() => ({
+      totalSum: totalSum - 1
     }));
   }
 
   render() {
-    const { scores, title } = this.state;
+    const { totalSum } = this.state;
     return (
-      <div>
-        <ScoreboardBrowser
-          handleScoreUpdate={this.handleScoreUpdate}
-          title={title}
-          scores={scores}
-        />
-      </div>
+      <Scoreboard increment={this.increment} decrement={this.decrement} totalSum={totalSum}>
+        {props => {
+          return ScoreboardBrowser(props);
+        }}
+      </Scoreboard>
     );
   }
 }

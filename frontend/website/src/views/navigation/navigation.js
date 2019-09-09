@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { MenuList, MenuItem } from '@material-ui/core';
 import Rules from '../rules/rules';
 import ScoreboardWrapper from '../scoreboard/scoreboard.wrapper';
@@ -17,7 +17,7 @@ const notFound = ({ location }) => (
 export default class Navigation extends React.Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div>
           <MenuList className="header_menu_list">
             <MenuItem className="header_menu_item">
@@ -38,7 +38,7 @@ export default class Navigation extends React.Component {
             <Route component={notFound} />
           </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
