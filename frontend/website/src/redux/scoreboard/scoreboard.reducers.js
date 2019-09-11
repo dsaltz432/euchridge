@@ -2,7 +2,7 @@ import { ScoreboardActions } from './scoreboard.actions';
 
 const initialState = {
   scores: [0, 0, 0, 0],
-  title: 'Scoreboard Title'
+  title: 'Net Scores for Each Player'
 };
 
 export const scoreboard = (state = initialState, action) => {

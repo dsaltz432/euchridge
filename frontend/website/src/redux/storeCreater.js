@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { createLogger } from 'redux-logger';
 import { scoreboard } from './scoreboard/scoreboard.reducers';
+import { onboarding } from './onboarding/onboarding.reducers';
 
 export const createPlatformStore = config => {
   const persistConfig = {
@@ -12,7 +13,8 @@ export const createPlatformStore = config => {
   };
 
   const rootReducer = combineReducers({
-    scoreboard
+    scoreboard,
+    onboarding
   });
 
   const persistedReducer = persistReducer(persistConfig, rootReducer);

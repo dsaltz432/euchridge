@@ -7,7 +7,7 @@ export const ScoreboardBrowser = props => {
   const { handleScoreUpdate, handleScoreReset, title, scores } = props;
 
   // props from the Wrapper
-  const { increment, decrement, totalSum } = props;
+  const { increment, decrement, totalSum, username } = props;
 
   function handleUpdate(playerIndex, change) {
     handleScoreUpdate(playerIndex, change);
@@ -20,7 +20,8 @@ export const ScoreboardBrowser = props => {
 
   return (
     <div css={styles.container}>
-      <h1>{title}</h1>
+      <h1>{`You are logged in, ${username}`}</h1>
+      <h2>{title}</h2>
       <div>
         <h2>{`Player 1 Score: ${scores[0]}`}</h2>
         <button type="button" onClick={() => handleUpdate(0, 1)}>

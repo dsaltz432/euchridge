@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScoreboardBrowser } from './scoreboard.browser';
-import { Scoreboard } from '../../uiengine/components/scoreboard/scoreboard.container';
+import { Scoreboard } from './scoreboard.container';
 
 export default class ScoreboardWrapper extends React.Component {
   constructor(props) {
@@ -29,8 +29,9 @@ export default class ScoreboardWrapper extends React.Component {
 
   render() {
     const { totalSum } = this.state;
+    const { username } = this.props;
     return (
-      <Scoreboard increment={this.increment} decrement={this.decrement} totalSum={totalSum}>
+      <Scoreboard increment={this.increment} decrement={this.decrement} totalSum={totalSum} username={username}>
         {props => {
           return ScoreboardBrowser(props);
         }}

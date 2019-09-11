@@ -6,7 +6,6 @@ import { handleScoreUpdate, handleScoreReset } from '../../redux/scoreboard/scor
 
 const mapState = state => {
   const { scoreboard: { scores, title} } = state;
-  debugger
   return {
     scores,
     title
@@ -14,7 +13,6 @@ const mapState = state => {
 };
 
 const mapDispatch = dispatch => {
-  debugger
   return {
     handleScoreUpdate: (playerIndex, change) => { dispatch(handleScoreUpdate(playerIndex, change))},
     handleScoreReset: (playerIndex) => { dispatch(handleScoreReset(playerIndex))}

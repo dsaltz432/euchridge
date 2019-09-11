@@ -12,4 +12,10 @@
 .header_menu_item_link {
 	color: white;
 	text-decoration: none;
+	font-size: 18px;
+}
+
+.header_menu_item_link:hover, .header_menu_item_link:focus {
+	color: white;
+	text-decoration: none;
 }
