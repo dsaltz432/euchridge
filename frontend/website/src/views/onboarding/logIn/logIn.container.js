@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { connect } from 'react-redux';
 import LogInView from './logIn.component';
-import { logIn } from "../../redux/onboarding/onboarding.actions";
+import { logIn } from "../../../redux/onboarding/onboarding.actions";
 
 const mapState = state => {
     return {

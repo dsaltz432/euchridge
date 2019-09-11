@@ -6,9 +6,9 @@ import Rules from '../rules/rules';
 import ScoreboardWrapper from '../scoreboard/scoreboard.wrapper';
 import './navigation.css';
 import { notFound } from './notFound';
-import { SignUp } from '../onboarding/signUp.container';
-import { LogIn } from '../onboarding/logIn.container';
-import { LogOut } from '../onboarding/logOut.container';
+import { SignUp } from '../onboarding/signUp/signUp.container';
+import { LogIn } from '../onboarding/logIn/logIn.container';
+import { LogOut } from '../onboarding/logOut/logOut.container';
 
 export default class NavigationView extends React.Component {
   constructor(props) {
@@ -31,21 +31,20 @@ export default class NavigationView extends React.Component {
     debugger
     return (
       <BrowserRouter>
-        <div>
-          <MenuList className="header_menu_list">
-              {
-                  authenticated &&
-                  <MenuItem className="header_menu_item">
-                      <Link className="header_menu_item_link" to="/logOut">Log Out</Link>
-                  </MenuItem>
-              }
-            <MenuItem className="header_menu_item">
-              <Link className="header_menu_item_link" to="/scoreboard">Scoreboard</Link>
-            </MenuItem>
-            <MenuItem className="header_menu_item">
-              <Link className="header_menu_item_link" to="/rules">Rules</Link>
-            </MenuItem>
-          </MenuList>
+          {
+              authenticated &&
+              <MenuList className="header_menu_list">
+                      <MenuItem className="header_menu_item">
+                          <Link className="header_menu_item_link" to="/logOut">Log Out</Link>
+                      </MenuItem>
+                      <MenuItem className="header_menu_item">
+                          <Link className="header_menu_item_link" to="/scoreboard">Scoreboard</Link>
+                      </MenuItem>
+                      <MenuItem className="header_menu_item">
+                          <Link className="header_menu_item_link" to="/rules">Rules</Link>
+                      </MenuItem>
+              </MenuList>
+          }
           <Switch>
             <PrivateRoute authenticated={authenticated} path="/rules" component={Rules} username={username}/>
             <PrivateRoute authenticated={authenticated} path="/scoreboard" component={ScoreboardWrapper} username={username}/>
@@ -76,7 +75,6 @@ export default class NavigationView extends React.Component {
             />
             <Route component={notFound} />
           </Switch>
-        </div>
       </BrowserRouter>
     );
   }

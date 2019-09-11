@@ -1,6 +1,9 @@
 /* eslint-disable */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { styles } from '../onboarding.styles';
 
 export default class SignUpView extends React.Component {
     constructor(props) {
@@ -61,7 +64,7 @@ export default class SignUpView extends React.Component {
         }
 
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <div css={styles.onboardingContainer} className="col-md-6 col-md-offset-3 jumbotron">
                 <h2>Register</h2>
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className='form-group'>
