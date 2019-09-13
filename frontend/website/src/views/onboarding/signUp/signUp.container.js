@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { connect } from 'react-redux';
 import SignUpView from './signUp.component';
-import { signUp } from "../../../redux/onboarding/onboarding.actions";
+import { signUp } from "../../../redux/onboarding/onboarding.helpers";
 
 const mapState = state => {
     return {
@@ -11,7 +11,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
     return {
-        signUp: (user) => dispatch(signUp(user)),
+        signUp: (user) => signUp(user),
     };
 };
 

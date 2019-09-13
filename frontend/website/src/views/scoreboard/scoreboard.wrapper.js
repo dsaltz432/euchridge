@@ -29,9 +29,8 @@ export default class ScoreboardWrapper extends React.Component {
 
   render() {
     const { totalSum } = this.state;
-    const { username } = this.props;
     return (
-      <Scoreboard increment={this.increment} decrement={this.decrement} totalSum={totalSum} username={username}>
+      <Scoreboard increment={this.increment} decrement={this.decrement} totalSum={totalSum}>
         {props => {
           return ScoreboardBrowser(props);
         }}

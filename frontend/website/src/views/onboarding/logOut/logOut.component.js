@@ -2,9 +2,18 @@
 import React from 'react';
 
 export default class LogOutView extends React.Component {
+
+    componentDidMount() {
+        console.log("LogOutView componentDidMount()");
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("LogOutView componentDidUpdate()");
+    }
+
     render() {
-        const { logOut, username } = this.props;
-        logOut(username);
+        console.log("LogOutView render()");
+        this.props.logOut();
         return (
             <div>dummy value</div>
         );

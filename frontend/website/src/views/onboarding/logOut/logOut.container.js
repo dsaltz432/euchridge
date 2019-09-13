@@ -11,7 +11,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
     return {
-        logOut: username => dispatch(logOut(username)),
+        logOut: () => dispatch(logOut()),
     };
 };
 

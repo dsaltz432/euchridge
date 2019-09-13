@@ -5,10 +5,11 @@ import { ScoreboardView } from './scoreboard.component';
 import { handleScoreUpdate, handleScoreReset } from '../../redux/scoreboard/scoreboard.actions';
 
 const mapState = state => {
-  const { scoreboard: { scores, title} } = state;
+  const { onboarding: { username }, scoreboard: { scores, title} } = state;
   return {
     scores,
-    title
+    title,
+    username
   };
 };
 

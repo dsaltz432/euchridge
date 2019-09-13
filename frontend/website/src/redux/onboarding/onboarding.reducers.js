@@ -7,15 +7,10 @@ const DEFAULT_ONBOARDING_FIELDS = {
 
 export const onboarding = (state = DEFAULT_ONBOARDING_FIELDS, action) => {
   switch (action.type) {
-    case OnboardingActions.SIGNUP: {
-      return {
-        ...state
-      };
-    }
-    case OnboardingActions.LOGIN:
+    case OnboardingActions.SET_AUTHENTICATED:
       return {
         ...state,
-        authenticated: true,
+        authenticated: action.authenticated,
         username: action.username
       };
     case OnboardingActions.LOGOUT:

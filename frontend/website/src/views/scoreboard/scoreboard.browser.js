@@ -4,10 +4,10 @@ import { styles } from './scoreboard.styles';
 
 export const ScoreboardBrowser = props => {
   // props from the Container
-  const { handleScoreUpdate, handleScoreReset, title, scores } = props;
+  const { handleScoreUpdate, handleScoreReset, title, scores, username } = props;
 
   // props from the Wrapper
-  const { increment, decrement, totalSum, username } = props;
+  const { increment, decrement, totalSum } = props;
 
   function handleUpdate(playerIndex, change) {
     handleScoreUpdate(playerIndex, change);

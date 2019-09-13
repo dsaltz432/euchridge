@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 import { MenuList, MenuItem } from '@material-ui/core';
-import Rules from '../rules/rules';
+import { Rules } from '../rules/rules.container';
 import ScoreboardWrapper from '../scoreboard/scoreboard.wrapper';
 import './navigation.css';
 import { notFound } from './notFound';
@@ -13,6 +13,7 @@ import { LogOut } from '../onboarding/logOut/logOut.container';
 export default class NavigationView extends React.Component {
   constructor(props) {
     super(props);
+    console.log("NavigationView constructor()");
 
     this.authenticated = this.authenticated.bind(this);
 
@@ -21,14 +22,22 @@ export default class NavigationView extends React.Component {
     }
   }
 
-  authenticated() {
+    componentDidMount() {
+        console.log("NavigationView componentDidMount()");
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("NavigationView componentDidUpdate()");
+    }
+
+    authenticated() {
     // this.props.loadData();
     console.log("authenticated!!");
   }
 
   render() {
-    const { authenticated, username } = this.props;
-    debugger
+      console.log("NavigationView render()");
+      const { authenticated } = this.props;
     return (
       <BrowserRouter>
           {
@@ -46,9 +55,9 @@ export default class NavigationView extends React.Component {
               </MenuList>
           }
           <Switch>
-            <PrivateRoute authenticated={authenticated} path="/rules" component={Rules} username={username}/>
-            <PrivateRoute authenticated={authenticated} path="/scoreboard" component={ScoreboardWrapper} username={username}/>
-            <PrivateRoute authenticated={authenticated} path="/logOut" component={LogOut} username={username}/>
+            <PrivateRoute authenticated={authenticated} path="/rules" component={Rules}/>
+            <PrivateRoute authenticated={authenticated} path="/scoreboard" component={ScoreboardWrapper}/>
+            <PrivateRoute authenticated={authenticated} path="/logOut" component={LogOut}/>
             <Route exact path="/"
               render={props =>
                 authenticated ? (
@@ -81,7 +90,6 @@ export default class NavigationView extends React.Component {
 }
 
 const PrivateRoute = ({ component: Component, authenticated, username, ...rest }) => {
-    debugger
   return (
     <Route {...rest}
       render={props =>

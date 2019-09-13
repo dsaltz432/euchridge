@@ -1,23 +1,17 @@
 export const OnboardingActions = {
-  SIGNUP: '@onboardingActions/signUp',
-  LOGIN: '@onboardingActions/logIn',
+  SET_AUTHENTICATED: '@onboardingActions/setAuthenticated',
   LOGOUT: '@onboardingActions/logOut'
 };
 
-export const signUp = user => {
+export const setAuthenticated = (authenticated, username) => {
   return {
-    type: OnboardingActions.SIGNUP
-  };
-};
-
-export const logIn = (username, password) => {
-  return {
-    type: OnboardingActions.LOGIN,
+    type: OnboardingActions.SET_AUTHENTICATED,
+    authenticated,
     username
   };
 };
 
-export const logOut = user => {
+export const logOut = () => {
   return {
     type: OnboardingActions.LOGOUT
   };

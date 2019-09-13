@@ -17,11 +17,20 @@ export default class SignUpView extends React.Component {
                 password: ''
             },
             submitted: false,
+            error: null,
             redirectTarget: null
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        console.log("SignUpView componentDidMount()");
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("SignUpView componentDidUpdate()");
     }
 
     handleChange(event) {
@@ -45,8 +54,14 @@ export default class SignUpView extends React.Component {
 
         const { user } = this.state;
         if (user.firstName && user.lastName && user.username && user.password) {
-            this.props.signUp(user);
-            this.setRedirect('/logIn');
+            const { success, error } = this.props.signUp(user);
+            if (success) {
+                this.setRedirect('/logIn');
+            } else {
+                this.setState({
+                    error: error
+                });
+            }
         }
     }
 
@@ -57,8 +72,8 @@ export default class SignUpView extends React.Component {
     }
 
     render() {
+        console.log("SignUpView render()");
         const { user, submitted, redirectTarget } = this.state;
-        debugger
         if (redirectTarget != null) {
             return <Redirect push to={redirectTarget} />
         }
@@ -87,6 +102,7 @@ export default class SignUpView extends React.Component {
                         <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
                         {submitted && !user.password && <div className="help-block">Password is required</div>}
                     </div>
+                    {this.state.error && <div className="help-block">{this.state.error}</div>}
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
                         <Link to="/logIn" className="btn btn-link">Cancel</Link>

@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import NavigationView from './navigation.component';
 
 const mapState = state => {
-    debugger
-    const { onboarding: { username, authenticated } } = state;
+    const { onboarding: { authenticated } } = state;
     return {
-        username,
         authenticated
     };
 };
